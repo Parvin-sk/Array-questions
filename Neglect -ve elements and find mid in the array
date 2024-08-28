@@ -1,0 +1,37 @@
+You are given an array arr of length n. Find and print the element at the mid index array ignoring all the indices at which negative numbers are present in the array.
+
+Note:
+
+In case there are two mid indices, print the element at the smaller index. You may assume that there will be at least one positive integer in array
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > 0) {
+                count++;
+            }
+        }
+        int mid = count / 2;
+        count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > 0) {
+                count++;
+                if (count == mid + 1) {
+                    System.out.println(arr[i]);
+                    break;
+                }
+            }
+        }
+    }
+}
